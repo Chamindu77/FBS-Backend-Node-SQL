@@ -34,6 +34,7 @@
 
 const { Sequelize } = require('sequelize');
 const mysql2 = require('mysql2'); // Explicitly require mysql2
+const pg = require('pg'); // Explicitly require pg for PostgreSQL
 require('dotenv').config();
 
 const mysqlSequelize = new Sequelize(
@@ -54,6 +55,18 @@ const mysqlSequelize = new Sequelize(
   }
 );
 
+// const postgresSequelize = new Sequelize(
+//   process.env.POSTGRES_DB_NAME,
+//   process.env.POSTGRES_DB_USER,
+//   process.env.POSTGRES_DB_PASSWORD,
+//   {
+//     host: process.env.POSTGRES_DB_HOST,
+//     dialect: 'postgres',
+//     port: process.env.POSTGRES_DB_PORT || 5432,
+//     logging: false,
+//   }
+// );
+
 const postgresSequelize = new Sequelize(
   process.env.POSTGRES_DB_NAME,
   process.env.POSTGRES_DB_USER,
@@ -61,8 +74,15 @@ const postgresSequelize = new Sequelize(
   {
     host: process.env.POSTGRES_DB_HOST,
     dialect: 'postgres',
+    dialectModule: pg, // Add the dialect module
     port: process.env.POSTGRES_DB_PORT || 5432,
     logging: false,
+    dialectOptions: {
+      ssl: {
+        minVersion: 'TLSv1.2', // Optional TLS configuration
+        rejectUnauthorized: false, // Adjust as per your SSL setup
+      },
+    },
   }
 );
 
