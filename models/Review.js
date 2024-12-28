@@ -92,7 +92,7 @@
 // models/Review.js
 
 const { DataTypes } = require('sequelize');
-const { mysqlSequelize, postgresSequelize } = require('../config/db');
+const { mysqlSequelize/*, postgresSequelize*/ } = require('../config/db');
 
 const sequelize = process.env.DB_TYPE === 'mysql' ? mysqlSequelize : postgresSequelize;
 

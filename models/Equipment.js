@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const { mysqlSequelize, postgresSequelize } = require('../config/db');
+const { mysqlSequelize/*, postgresSequelize*/ } = require('../config/db');
 
 // Choose the correct Sequelize instance based on the DB_TYPE environment variable
 const sequelize = process.env.DB_TYPE === 'mysql' ? mysqlSequelize : postgresSequelize;

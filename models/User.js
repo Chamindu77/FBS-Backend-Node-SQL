@@ -1,7 +1,7 @@
 // models/User.js
 const { DataTypes } = require('sequelize');
 const crypto = require('crypto');
-const { mysqlSequelize, postgresSequelize } = require('../config/db');
+const { mysqlSequelize/*, postgresSequelize*/ } = require('../config/db');
 
 // Determine which database instance to use
 const sequelize = process.env.DB_TYPE === 'mysql' ? mysqlSequelize : postgresSequelize;
