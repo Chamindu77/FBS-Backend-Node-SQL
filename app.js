@@ -4,7 +4,7 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const cors = require('cors');
-const { mysqlSequelize } = require('./config/db'); 
+const { mysqlSequelize, postgresSequelize } = require('./config/db'); 
 const bodyParser = require('body-parser');
 const path = require('path');
 require('dotenv').config();
