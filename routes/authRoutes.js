@@ -38,7 +38,7 @@ router.get(
         return res.status(500).json({ error: 'Server error' });
       }
 
-      res.redirect(`http://localhost:3000/auth/google/callback?token=${token}`);
+      res.redirect(`https://sfbs-project-sql-version-frontend.vercel.app/auth/google/callback?token=${token}`);
     });
   }
 );
